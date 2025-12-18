@@ -34,10 +34,10 @@ const projects = [
   },
   {
     title: "Portfolio Website",
-    description: "Created a personal portfolio showcasing projects with interactive and responsive design.",
-    tech: ["Node.js", "React", "Express", "MongoDB"],
+    description: "Personal portfolio showcasing projects and case studies — deployed on Vercel. Click to view the live site.",
+    tech: ["Next.js", "React", "Tailwind CSS"],
     github: "#",
-    live: "#",
+    live: "https://my-personal-portfolio-8gfa628ig-prabha8859s-projects.vercel.app",
     featured: true,
     gradient: "from-green-500/20 to-emerald-500/20",
     icon: "laptop",
