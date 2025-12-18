@@ -1,37 +1,4 @@
 import { useState, useEffect } from "react";
-import { Volume2, VolumeX } from "lucide-react";
-
-// Simple completion sound using Web Audio API
-const playCompletionSound = () => {
-  try {
-    const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-    
-    // Create a pleasant "ding" sound
-    const oscillator = audioContext.createOscillator();
-    const gainNode = audioContext.createGain();
-    
-    oscillator.connect(gainNode);
-    gainNode.connect(audioContext.destination);
-    
-    // Pleasant frequency progression (like a soft chime)
-    oscillator.frequency.setValueAtTime(587.33, audioContext.currentTime); // D5
-    oscillator.frequency.setValueAtTime(880, audioContext.currentTime + 0.1); // A5
-    
-    oscillator.type = 'sine';
-    
-    // Soft volume with fade out
-    gainNode.gain.setValueAtTime(0.15, audioContext.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-    
-    oscillator.start(audioContext.currentTime);
-    oscillator.stop(audioContext.currentTime + 0.5);
-    
-    // Clean up
-    setTimeout(() => audioContext.close(), 600);
-  } catch (error) {
-    console.log('Audio not available:', error);
-  }
-};
 
 const LoadingScreen = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
   const [progress, setProgress] = useState(0);
@@ -39,11 +6,6 @@ const LoadingScreen = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
   const [showAI, setShowAI] = useState(false);
   const [messageIndex, setMessageIndex] = useState(0);
   const [isDark, setIsDark] = useState(true);
-  const [isMuted, setIsMuted] = useState(() => {
-    // Check localStorage for saved preference
-    const saved = localStorage.getItem('loadingSoundMuted');
-    return saved === 'true';
-  });
 
   const messages = [
     "Initializing portfolio...",
@@ -53,11 +15,7 @@ const LoadingScreen = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
     "Let's go! 🚀"
   ];
 
-  const toggleMute = () => {
-    const newMuted = !isMuted;
-    setIsMuted(newMuted);
-    localStorage.setItem('loadingSoundMuted', String(newMuted));
-  };
+
 
   useEffect(() => {
     // Check theme
@@ -79,10 +37,6 @@ const LoadingScreen = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
       setProgress(prev => {
         if (prev >= 100) {
           clearInterval(interval);
-          // Play completion sound if not muted
-          if (!isMuted) {
-            playCompletionSound();
-          }
           setTimeout(onLoadComplete, 500);
           return 100;
         }
@@ -95,22 +49,11 @@ const LoadingScreen = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
       });
     }, 40);
     return () => clearInterval(interval);
-  }, [onLoadComplete, messageIndex, messages.length, isMuted]);
+  }, [onLoadComplete, messageIndex, messages.length]);
 
   return (
     <div className="fixed inset-0 z-[100] bg-background flex items-center justify-center overflow-hidden">
-      {/* Mute Toggle Button */}
-      <button
-        onClick={toggleMute}
-        className="absolute top-6 right-6 p-3 glass-card rounded-full hover:bg-primary/10 transition-all duration-300 z-20"
-        title={isMuted ? "Unmute sound" : "Mute sound"}
-      >
-        {isMuted ? (
-          <VolumeX size={20} className="text-muted-foreground" />
-        ) : (
-          <Volume2 size={20} className="text-primary" />
-        )}
-      </button>
+      {/* (Audio removed) */}
 
       {/* Dark Mode Background - Gradient Blobs */}
       {isDark && (

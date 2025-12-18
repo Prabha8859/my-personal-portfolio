@@ -1,7 +1,9 @@
 import { ExternalLink, Github, ArrowUpRight, Laptop, Gamepad2 } from "lucide-react";
 import SectionBackground from "./SectionBackground";
 import ScrollReveal from "./ScrollReveal";
+
 const projects = [
+  // Top projects (ordered as requested)
   {
     title: "PlayZelo - Gaming Platform",
     description: "Built a full-featured gaming platform with real-time transactions, user authentication, and interactive gaming experience. Features skill-based games with secure payments.",
@@ -11,36 +13,6 @@ const projects = [
     featured: true,
     gradient: "from-pink-500/20 to-red-500/20",
     icon: "gaming",
-  },
-  {
-    title: "E-Commerce Website",
-    description: "Developed a full-stack e-commerce platform with user authentication, product management, and payment integration.",
-    tech: ["Node.js", "React", "Express", "MongoDB"],
-    github: "#",
-    live: "#",
-    featured: true,
-    gradient: "from-cyan-500/20 to-blue-500/20",
-    icon: "laptop",
-  },
-  {
-    title: "Car Rental Website",
-    description: "Built a responsive car rental site with dynamic booking, user management, and backend business logic.",
-    tech: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
-    github: "#",
-    live: "https://www.solo.drive.com",
-    featured: true,
-    gradient: "from-purple-500/20 to-pink-500/20",
-    icon: "laptop",
-  },
-  {
-    title: "Portfolio Website",
-    description: "Created a personal portfolio showcasing projects with interactive and responsive design.",
-    tech: ["Node.js", "React", "Express", "MongoDB"],
-    github: "#",
-    live: "#",
-    featured: true,
-    gradient: "from-green-500/20 to-emerald-500/20",
-    icon: "laptop",
   },
   {
     title: "APNews Bihar",
@@ -60,6 +32,38 @@ const projects = [
     live: "https://www.regalwoven.com/index.php",
     featured: true,
     gradient: "from-orange-400/20 to-amber-400/20",
+    icon: "laptop",
+  },
+  {
+    title: "Portfolio Website",
+    description: "Personal portfolio showcasing projects and case studies — deployed on Vercel. Click to view the live site.",
+    tech: ["Next.js", "React", "Tailwind CSS"],
+    github: "#",
+    live: "https://my-personal-portfolio-8gfa628ig-prabha8859s-projects.vercel.app",
+    featured: true,
+    gradient: "from-green-500/20 to-emerald-500/20",
+    icon: "laptop",
+  },
+
+  // Other projects
+  {
+    title: "E-Commerce Website",
+    description: "Developed a full-stack e-commerce platform with user authentication, product management, and payment integration.",
+    tech: ["Node.js", "React", "Express", "MongoDB"],
+    github: "#",
+    live: "#",
+    featured: true,
+    gradient: "from-cyan-500/20 to-blue-500/20",
+    icon: "laptop",
+  },
+  {
+    title: "Car Rental Website",
+    description: "Built a responsive car rental site with dynamic booking, user management, and backend business logic.",
+    tech: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
+    github: "#",
+    live: "https://www.solo.drive.com",
+    featured: true,
+    gradient: "from-purple-500/20 to-pink-500/20",
     icon: "laptop",
   },
   {
