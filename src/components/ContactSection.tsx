@@ -77,6 +77,16 @@ const ContactSection = () => {
                 </div>
                 Contact Information
               </h3>
+              <div className="mb-6">
+                <a
+                  href="/Prabha_CV.pdf"
+                  download
+                  className="inline-flex items-center gap-2 px-4 py-3 btn-outline-glow rounded-2xl text-foreground"
+                >
+                  <ArrowRight size={16} />
+                  Download CV
+                </a>
+              </div>
               
               <div className="space-y-6">
                 {contactInfo.map((item) => (

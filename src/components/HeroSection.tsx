@@ -173,7 +173,8 @@ const HeroSection = () => {
             </MagneticButton>
             <MagneticButton strength={0.4}>
               <a
-                href="#contact"
+                href="/Prabha_CV.pdf"
+                download
                 className="px-8 py-4 btn-outline-glow text-foreground rounded-xl inline-block"
               >
                 Get In Touch
